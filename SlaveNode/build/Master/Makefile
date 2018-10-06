@@ -10,7 +10,6 @@ mymkdir = mkdir -p $1
 endif
 
 PROJECT_OBJS = \
-	project/.sc6788713006963088061.cpp.o \
 	project/fpvTrackerNode.cpp.o \
 
 PLATFORM_CORE_OBJS = \
@@ -70,14 +69,6 @@ clean:
 
 size:
 	"C:/Users/ITSIK/.arduinocdt/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/bin/avr-size" -A "./Slave.elf"
-
-project/.sc6788713006963088061.cpp.o: ../../.sc6788713006963088061.cpp project/.sc6788713006963088061.cpp.d
-	@$(call mymkdir,$(dir $@))
-	"C:/Users/ITSIK/.arduinocdt/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/bin/avr-g++" -c -g -Os -w -std=gnu++11 -fpermissive -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD -flto -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=10608 -DARDUINO_AVR_NANO -DARDUINO_ARCH_AVR   -I"C:/Users/ITSIK/.arduinocdt/packages/arduino/hardware/avr/1.6.21/cores/arduino" -I"C:/Users/ITSIK/.arduinocdt/packages/arduino/hardware/avr/1.6.21/variants/eightanaloginputs" -I"C:/Users/ITSIK/.arduinocdt/libraries/WireUtility_Library/1.0.0" -I"C:/Users/ITSIK/.arduinocdt/packages/arduino/hardware/avr/1.6.21/libraries/EEPROM/src" -I"C:/Users/ITSIK/.arduinocdt/packages/arduino/hardware/avr/1.6.21/libraries/Wire/src" -I"C:/Users/ITSIK/.arduinocdt/packages/arduino/hardware/avr/1.6.21/libraries/SPI/src" -I"C:/Users/ITSIK/.arduinocdt/libraries/advancedSerial/1.2.4/src" -I"C:/Users/ITSIK/.arduinocdt/packages/arduino/hardware/avr/1.6.21/libraries/HID/src" -I"C:/Users/ITSIK/.arduinocdt/packages/arduino/hardware/avr/1.6.21/libraries/SoftwareSerial/src" "$<" -o "$@"
-
-project/.sc6788713006963088061.cpp.d: ;
-
--include project/.sc6788713006963088061.cpp.d 
 
 project/fpvTrackerNode.cpp.o: ../../fpvTrackerNode.cpp project/fpvTrackerNode.cpp.d
 	@$(call mymkdir,$(dir $@))
