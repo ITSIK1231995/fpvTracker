@@ -10,6 +10,7 @@ mymkdir = mkdir -p $1
 endif
 
 PROJECT_OBJS = \
+	project/comBuffer/comBuffer.cpp.o \
 	project/fpvTracker.cpp.o \
 	project/functions/funcArry/funcArry.cpp.o \
 	project/functions/retrieveFuncs/retrieveFuncs.cpp.o \
@@ -74,6 +75,14 @@ clean:
 
 size:
 	"C:/Users/ITSIK/.arduinocdt/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/bin/avr-size" -A "./Master.elf"
+
+project/comBuffer/comBuffer.cpp.o: ../../comBuffer/comBuffer.cpp project/comBuffer/comBuffer.cpp.d
+	@$(call mymkdir,$(dir $@))
+	"C:/Users/ITSIK/.arduinocdt/packages/arduino/tools/avr-gcc/4.9.2-atmel3.5.4-arduino2/bin/avr-g++" -c -g -Os -w -std=gnu++11 -fpermissive -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD -flto -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=10608 -DARDUINO_AVR_NANO -DARDUINO_ARCH_AVR   -I"C:/Users/ITSIK/.arduinocdt/packages/arduino/hardware/avr/1.6.21/cores/arduino" -I"C:/Users/ITSIK/.arduinocdt/packages/arduino/hardware/avr/1.6.21/variants/eightanaloginputs" -I"C:/Users/ITSIK/.arduinocdt/libraries/WireUtility_Library/1.0.0" -I"C:/Users/ITSIK/.arduinocdt/packages/arduino/hardware/avr/1.6.21/libraries/EEPROM/src" -I"C:/Users/ITSIK/.arduinocdt/packages/arduino/hardware/avr/1.6.21/libraries/Wire/src" -I"C:/Users/ITSIK/.arduinocdt/packages/arduino/hardware/avr/1.6.21/libraries/SPI/src" -I"C:/Users/ITSIK/.arduinocdt/libraries/advancedSerial/1.2.4/src" -I"C:/Users/ITSIK/.arduinocdt/packages/arduino/hardware/avr/1.6.21/libraries/HID/src" -I"C:/Users/ITSIK/.arduinocdt/packages/arduino/hardware/avr/1.6.21/libraries/SoftwareSerial/src" "$<" -o "$@"
+
+project/comBuffer/comBuffer.cpp.d: ;
+
+-include project/comBuffer/comBuffer.cpp.d 
 
 project/fpvTracker.cpp.o: ../../fpvTracker.cpp project/fpvTracker.cpp.d
 	@$(call mymkdir,$(dir $@))
