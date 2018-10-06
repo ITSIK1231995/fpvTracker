@@ -22,16 +22,20 @@ void setup() {
 void loop() {
     int comNum;
     if(comBuffer.hasNext()){
-    	comBuffer.printBuffer(); // for debuging
+    	//comBuffer.printBuffer(); // for debuging
         comNum = comBuffer.read8();
         if(comNum < MAC_COM_NUM)
-            functions[comNum]();
+            functions[comNum](&comBuffer);
+        else{
+        	Serial.println("Error - no such command");
+        }
     }
 }
 
 
 void serialEvent() {
     while (Serial.available()) {
+    	delay(1000);
         char input = (char)Serial.read();
         if(input != '\n')
         	comBuffer.write8(input -48);

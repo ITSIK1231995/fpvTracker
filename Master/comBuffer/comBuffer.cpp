@@ -33,8 +33,13 @@ void ComBuffer::write32(uint32_t data) {
 
 void ComBuffer::printBuffer(){ // for debug
     int i;
-    for(i = comBufferStartIndex; i < comBufferEndIndex; i++)
-        Serial.println(buffer[(i)%comBufferSize]);
+    Serial.print("comBuffer content:[");
+    for(i = comBufferStartIndex; i < comBufferEndIndex; i++){
+        Serial.print(buffer[(i)%comBufferSize]);
+        if(i + 1 < comBufferEndIndex)
+        	Serial.print(", ");
+    }
+	Serial.println("]");
 }
 
 

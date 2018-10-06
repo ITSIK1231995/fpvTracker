@@ -26,6 +26,7 @@ public:
 
 	bool isBufferEmpty(){return !hasNext();}
 	bool hasNext(){return comBufferStartIndex < comBufferEndIndex;}
+	int size(){return comBufferEndIndex - comBufferStartIndex;}
 
 };
 

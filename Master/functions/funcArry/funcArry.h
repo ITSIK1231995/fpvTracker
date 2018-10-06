@@ -3,11 +3,12 @@
 
 #include "../writeFuncs/writeFuncs.h"
 #include  "../retrieveFuncs/retrieveFuncs.h"
+#include "../../comBuffer/comBuffer.h"
 
 
-#define MAC_COM_NUM  10
+#define MAC_COM_NUM  2
 
-typedef void (*func) ();
+typedef void (*func) (ComBuffer*);
 extern func functions[];
 
 #endif
